@@ -1,24 +1,28 @@
-# Iterative Fibonacci
-def fibonacci_iterative(n):
+# Iterative approach
+def iterative(n):
     a, b = 0, 1
 
-    for i in range(n - 1):
+    for i in range(n):
+        print(a, end=" ")
         a, b = b, a + b
 
-    return a
+
+# Recursive approach
+def recursive(n):
+    if n <= 1:
+        return n
+
+    return recursive(n-1) + recursive(n-2)
 
 
-# Recursive Fibonacci
-def fibonacci_recursive(n):
-    if n == 1:
-        return 0
-    if n == 2:
-        return 1
-
-    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
-
-
+# Main program
 n = int(input("Enter n: "))
 
-print("Iterative:", fibonacci_iterative(n))
-print("Recursive:", fibonacci_recursive(n))
+print("Iterative:", end=" ")
+iterative(n)
+
+print("\nRecursive:", end=" ")
+for i in range(n):
+    print(recursive(i), end=" ")
+
+print()
